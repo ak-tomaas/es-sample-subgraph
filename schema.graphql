@@ -1,0 +1,165 @@
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BatchMetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  _fromTokenId: BigInt! # uint256
+  _toTokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimEarnings @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tokenId: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimEarningsAllRented @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  count: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimEarningsMultiple @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tokenIds: [BigInt!]! # uint256[]
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewTRN @entity(immutable: true) {
+  id: Bytes!
+  name: String! # string
+  acceptedToken: Bytes! # address
+  svcStartDate: BigInt! # uint256
+  usefulLife: BigInt! # uint64
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Paused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PayOutEarnings @entity(immutable: true) {
+  id: Bytes!
+  renter: Bytes! # address
+  tokenId: BigInt! # uint256
+  amount: BigInt! # uint256
+  reportUri: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PayOutEarningsAllRented @entity(immutable: true) {
+  id: Bytes!
+  renter: Bytes! # address
+  amount: BigInt! # uint256
+  reportUri: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PayOutEarningsMultiple @entity(immutable: true) {
+  id: Bytes!
+  renter: Bytes! # address
+  tokenIds: [BigInt!]! # uint256[]
+  amount: BigInt! # uint256
+  reportUri: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Unpaused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateUser @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  user: Bytes! # address
+  expires: BigInt! # uint64
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpdateUsers @entity(immutable: true) {
+  id: Bytes!
+  user: Bytes! # address
+  expires: BigInt! # uint64
+  tokenIds: [BigInt!]! # uint256[]
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

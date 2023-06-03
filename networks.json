@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "TomaasRWN": {
+      "address": "0xA6d24906252c40B1cB64ecDfd22bC27F3bD78ffa",
+      "startBlock": 3615002
+    }
+  }
+}

@@ -1,0 +1,72 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: TomaasRWN
+    network: sepolia
+    source:
+      address: "0xA6d24906252c40B1cB64ecDfd22bC27F3bD78ffa"
+      abi: TomaasRWN
+      startBlock: 3615002
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - BatchMetadataUpdate
+        - ClaimEarnings
+        - ClaimEarningsAllRented
+        - ClaimEarningsMultiple
+        - MetadataUpdate
+        - NewTRN
+        - OwnershipTransferred
+        - Paused
+        - PayOutEarnings
+        - PayOutEarningsAllRented
+        - PayOutEarningsMultiple
+        - Transfer
+        - Unpaused
+        - UpdateUser
+        - UpdateUsers
+      abis:
+        - name: TomaasRWN
+          file: ./abis/TomaasRWN.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BatchMetadataUpdate(uint256,uint256)
+          handler: handleBatchMetadataUpdate
+        - event: ClaimEarnings(indexed address,uint256,uint256)
+          handler: handleClaimEarnings
+        - event: ClaimEarningsAllRented(indexed address,uint256,uint256)
+          handler: handleClaimEarningsAllRented
+        - event: ClaimEarningsMultiple(indexed address,uint256[],uint256)
+          handler: handleClaimEarningsMultiple
+        - event: MetadataUpdate(uint256)
+          handler: handleMetadataUpdate
+        - event: NewTRN(string,address,uint256,uint64,uint256)
+          handler: handleNewTRN
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: PayOutEarnings(indexed address,uint256,uint256,string)
+          handler: handlePayOutEarnings
+        - event: PayOutEarningsAllRented(indexed address,uint256,string)
+          handler: handlePayOutEarningsAllRented
+        - event: PayOutEarningsMultiple(indexed address,uint256[],uint256,string)
+          handler: handlePayOutEarningsMultiple
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+        - event: UpdateUser(indexed uint256,indexed address,uint64)
+          handler: handleUpdateUser
+        - event: UpdateUsers(indexed address,uint64,uint256[])
+          handler: handleUpdateUsers
+      file: ./src/tomaas-rwn.ts
