@@ -70,3 +70,182 @@ dataSources:
         - event: UpdateUsers(indexed address,uint64,uint256[])
           handler: handleUpdateUsers
       file: ./src/tomaas-rwn.ts
+  - kind: ethereum
+    name: TomaasLending
+    network: sepolia
+    source:
+      address: "0x835CEa42bbEB391D401eD6cAa0d8666EeAAD7e12"
+      abi: TomaasLending
+      startBlock: 3615021
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AddNewCollection
+        - NFTListed
+        - NFTUnlisted
+        - NFTsListed
+        - NFTsUnlisted
+        - TomaasLendingOwnershipTransferred
+        - TomaasLendingPaused
+        - RenterRegistered
+        - RenterUnregistered
+        - SettlementReportAdded
+        - SettlementReportUpdated
+        - TomaasLendingUnpaused
+      abis:
+        - name: TomaasLending
+          file: ./abis/TomaasLending.json
+      eventHandlers:
+        - event: AddNewCollection(indexed address,indexed address,address,uint256)
+          handler: handleAddNewCollection
+        - event: NFTListed(indexed address,uint256)
+          handler: handleNFTListed
+        - event: NFTUnlisted(indexed address,uint256)
+          handler: handleNFTUnlisted
+        - event: NFTsListed(indexed address,indexed address)
+          handler: handleNFTsListed
+        - event: NFTsUnlisted(indexed address,indexed address)
+          handler: handleNFTsUnlisted
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: RenterRegistered(indexed address,indexed address)
+          handler: handleRenterRegistered
+        - event: RenterUnregistered(indexed address,indexed address)
+          handler: handleRenterUnregistered
+        - event: SettlementReportAdded(indexed address,indexed address,indexed uint64,string)
+          handler: handleSettlementReportAdded
+        - event: SettlementReportUpdated(indexed address,indexed address,indexed uint64,string)
+          handler: handleSettlementReportUpdated
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/tomaas-lending.ts
+  - kind: ethereum
+    name: TomaasMarketplace
+    network: sepolia
+    source:
+      address: "0xB316710Aa57673a1F0E94a111242562c1ce50f42"
+      abi: TomaasMarketplace
+      startBlock: 3615023
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NFTBought
+        - NFTListedForSale
+        - NFTsBought
+        - NFTsListedForSale
+        - TomaasMarketplaceOwnershipTransferred
+        - TomaasMarketplacePaused
+        - TomaasMarketplaceUnpaused
+      abis:
+        - name: TomaasMarketplace
+          file: ./abis/TomaasMarketplace.json
+      eventHandlers:
+        - event: NFTBought(indexed address,uint256,uint256)
+          handler: handleNFTBought
+        - event: NFTListedForSale(indexed address,uint256,uint256)
+          handler: handleNFTListedForSale
+        - event: NFTsBought(indexed address,uint256[],uint256[])
+          handler: handleNFTsBought
+        - event: NFTsListedForSale(indexed address,uint256,uint256[])
+          handler: handleNFTsListedForSale
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/tomaas-marketplace.ts
+  - kind: ethereum
+    name: TomaasLPN
+    network: sepolia
+    source:
+      address: "0x04799D8E5111e20974e0A1D47c2D0586c37FA753"
+      abi: TomaasLPN
+      startBlock: 3615028
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - TomaasLPNApproval
+        - TomaasLPNApprovalForAll
+        - TomaasLPNBatchMetadataUpdate
+        - TomaasLPNMetadataUpdate
+        - TomaasLPNOwnershipTransferred
+        - TomaasLPNPaused
+        - TomaasLPNTransfer
+        - TomaasLPNUnpaused
+      abis:
+        - name: TomaasLPN
+          file: ./abis/TomaasLPN.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: BatchMetadataUpdate(uint256,uint256)
+          handler: handleBatchMetadataUpdate
+        - event: MetadataUpdate(uint256)
+          handler: handleMetadataUpdate
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/tomaas-lpn.ts
+  - kind: ethereum
+    name: TomaasStaking
+    network: sepolia
+    source:
+      address: "0xE2dbB7E7ED5DF58aee647e6957A2b6e3ec766384"
+      abi: TomaasStaking
+      startBlock: 3615030
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AddTLNAddress
+        - AddTRNAddress
+        - Claim
+        - ClaimFromTRNs
+        - TomaasStakingOwnershipTransferred
+        - TomaasStakingPaused
+        - SellTRNsToPool
+        - StakeTLNs
+        - TomaasStakingUnpaused
+        - UnstakeTLNs
+      abis:
+        - name: TomaasStaking
+          file: ./abis/TomaasStaking.json
+      eventHandlers:
+        - event: AddTLNAddress(indexed address,address,uint256,uint256[])
+          handler: handleAddTLNAddress
+        - event: AddTRNAddress(indexed address,address,uint256)
+          handler: handleAddTRNAddress
+        - event: Claim(indexed address,indexed address,uint256)
+          handler: handleClaim
+        - event: ClaimFromTRNs(indexed address,uint256,uint256)
+          handler: handleClaimFromTRNs
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: SellTRNsToPool(indexed address,indexed address,uint256[])
+          handler: handleSellTRNsToPool
+        - event: StakeTLNs(indexed address,indexed address,uint256[])
+          handler: handleStakeTLNs
+        - event: Unpaused(address)
+          handler: handleUnpaused
+        - event: UnstakeTLNs(indexed address,indexed address,uint256)
+          handler: handleUnstakeTLNs
+      file: ./src/tomaas-staking.ts

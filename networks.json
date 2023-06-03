@@ -3,6 +3,18 @@
     "TomaasRWN": {
       "address": "0xA6d24906252c40B1cB64ecDfd22bC27F3bD78ffa",
       "startBlock": 3615002
+    },
+    "TomaasLending": {
+      "address": "0x835CEa42bbEB391D401eD6cAa0d8666EeAAD7e12"
+    },
+    "TomaasMarketplace": {
+      "address": "0xB316710Aa57673a1F0E94a111242562c1ce50f42"
+    },
+    "TomaasLPN": {
+      "address": "0x04799D8E5111e20974e0A1D47c2D0586c37FA753"
+    },
+    "TomaasStaking": {
+      "address": "0xE2dbB7E7ED5DF58aee647e6957A2b6e3ec766384"
     }
   }
 }
